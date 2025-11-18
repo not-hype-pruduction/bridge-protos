@@ -146,7 +146,7 @@ const file_cards_v1_cards_proto_rawDesc = "" +
 	"\x15GenerateHandsResponse\x12\x10\n" +
 	"\x03pbn\x18\x01 \x01(\tR\x03pbn2h\n" +
 	"\x14CardGeneratorService\x12P\n" +
-	"\rGenerateHands\x12\x1e.cards.v1.GenerateHandsRequest\x1a\x1f.cards.v1.GenerateHandsResponseBCZAgithub.com/not-hype-pruduction/bridge-protos/gen/go/cards;cardsv1b\x06proto3"
+	"\rGenerateHands\x12\x1e.cards.v1.GenerateHandsRequest\x1a\x1f.cards.v1.GenerateHandsResponseB\x12Z\x10cards.v1;cardsv1b\x06proto3"
 
 var (
 	file_cards_v1_cards_proto_rawDescOnce sync.Once

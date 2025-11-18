@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package cards.v1;
 
-option go_package = "github.com/not-hype-pruduction/bridge-protos/gen/go/cards;cardsv1";
+option go_package = "cards.v1;cardsv1";
 
 service CardGeneratorService {
   rpc GenerateHands(GenerateHandsRequest) returns (GenerateHandsResponse);
