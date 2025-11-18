@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package cards.v1;
+
+option go_package = "github.com/not-hype-pruduction/bridge-protos/gen/go/cards;cardsv1";
+
+service CardGeneratorService {
+  rpc GenerateHands(GenerateHandsRequest) returns (GenerateHandsResponse);
+}
+
+message GenerateHandsRequest {
+  int32 my_points_min = 1;
+  int32 my_points_max = 2;
+
+  int32 partner_points_min = 3;
+  int32 partner_points_max = 4;
+}
+
+message GenerateHandsResponse {
+  string pbn = 1;
+}
