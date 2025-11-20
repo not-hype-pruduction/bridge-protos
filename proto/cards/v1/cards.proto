@@ -24,10 +24,11 @@ message GenerateHandsRequest {
 }
 
 enum User {
-  USER_OWNER_UNSPECIFIED = 0;
-  USER_PARTNER = 1;
-  USER_PLAYER1 = 2;
-  USER_PLAYER2 = 3;
+  USER_UNSPECIFIED = 0;
+  USER_OWNER = 1;
+  USER_PARTNER = 2;
+  USER_PLAYER1 = 3;
+  USER_PLAYER2 = 4;
 }
 
 message GenerateHandsResponse {
