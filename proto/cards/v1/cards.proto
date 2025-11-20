@@ -16,6 +16,18 @@ message GenerateHandsRequest {
   int32 partner_points_max = 4;
 
   string delaer = 5;
+
+  User north = 6;
+  User south = 7;
+  User west = 8;
+  User east = 9;
+}
+
+enum User {
+  USER_OWNER_UNSPECIFIED = 0;
+  USER_PARTNER = 1;
+  USER_PLAYER1 = 2;
+  USER_PLAYER2 = 3;
 }
 
 message GenerateHandsResponse {

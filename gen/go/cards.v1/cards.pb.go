@@ -21,6 +21,58 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type User int32
+
+const (
+	User_USER_OWNER_UNSPECIFIED User = 0
+	User_USER_PARTNER           User = 1
+	User_USER_PLAYER1           User = 2
+	User_USER_PLAYER2           User = 3
+)
+
+// Enum value maps for User.
+var (
+	User_name = map[int32]string{
+		0: "USER_OWNER_UNSPECIFIED",
+		1: "USER_PARTNER",
+		2: "USER_PLAYER1",
+		3: "USER_PLAYER2",
+	}
+	User_value = map[string]int32{
+		"USER_OWNER_UNSPECIFIED": 0,
+		"USER_PARTNER":           1,
+		"USER_PLAYER1":           2,
+		"USER_PLAYER2":           3,
+	}
+)
+
+func (x User) Enum() *User {
+	p := new(User)
+	*p = x
+	return p
+}
+
+func (x User) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (User) Descriptor() protoreflect.EnumDescriptor {
+	return file_cards_v1_cards_proto_enumTypes[0].Descriptor()
+}
+
+func (User) Type() protoreflect.EnumType {
+	return &file_cards_v1_cards_proto_enumTypes[0]
+}
+
+func (x User) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use User.Descriptor instead.
+func (User) EnumDescriptor() ([]byte, []int) {
+	return file_cards_v1_cards_proto_rawDescGZIP(), []int{0}
+}
+
 type GenerateHandsRequest struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	MyPointsMin      int32                  `protobuf:"varint,1,opt,name=my_points_min,json=myPointsMin,proto3" json:"my_points_min,omitempty"`
@@ -28,6 +80,10 @@ type GenerateHandsRequest struct {
 	PartnerPointsMin int32                  `protobuf:"varint,3,opt,name=partner_points_min,json=partnerPointsMin,proto3" json:"partner_points_min,omitempty"`
 	PartnerPointsMax int32                  `protobuf:"varint,4,opt,name=partner_points_max,json=partnerPointsMax,proto3" json:"partner_points_max,omitempty"`
 	Delaer           string                 `protobuf:"bytes,5,opt,name=delaer,proto3" json:"delaer,omitempty"`
+	North            User                   `protobuf:"varint,6,opt,name=north,proto3,enum=cards.v1.User" json:"north,omitempty"`
+	South            User                   `protobuf:"varint,7,opt,name=south,proto3,enum=cards.v1.User" json:"south,omitempty"`
+	West             User                   `protobuf:"varint,8,opt,name=west,proto3,enum=cards.v1.User" json:"west,omitempty"`
+	East             User                   `protobuf:"varint,9,opt,name=east,proto3,enum=cards.v1.User" json:"east,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -97,6 +153,34 @@ func (x *GenerateHandsRequest) GetDelaer() string {
 	return ""
 }
 
+func (x *GenerateHandsRequest) GetNorth() User {
+	if x != nil {
+		return x.North
+	}
+	return User_USER_OWNER_UNSPECIFIED
+}
+
+func (x *GenerateHandsRequest) GetSouth() User {
+	if x != nil {
+		return x.South
+	}
+	return User_USER_OWNER_UNSPECIFIED
+}
+
+func (x *GenerateHandsRequest) GetWest() User {
+	if x != nil {
+		return x.West
+	}
+	return User_USER_OWNER_UNSPECIFIED
+}
+
+func (x *GenerateHandsRequest) GetEast() User {
+	if x != nil {
+		return x.East
+	}
+	return User_USER_OWNER_UNSPECIFIED
+}
+
 type GenerateHandsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Pbn           string                 `protobuf:"bytes,1,opt,name=pbn,proto3" json:"pbn,omitempty"`
@@ -145,15 +229,24 @@ var File_cards_v1_cards_proto protoreflect.FileDescriptor
 
 const file_cards_v1_cards_proto_rawDesc = "" +
 	"\n" +
-	"\x14cards/v1/cards.proto\x12\bcards.v1\"\xd2\x01\n" +
+	"\x14cards/v1/cards.proto\x12\bcards.v1\"\xe6\x02\n" +
 	"\x14GenerateHandsRequest\x12\"\n" +
 	"\rmy_points_min\x18\x01 \x01(\x05R\vmyPointsMin\x12\"\n" +
 	"\rmy_points_max\x18\x02 \x01(\x05R\vmyPointsMax\x12,\n" +
 	"\x12partner_points_min\x18\x03 \x01(\x05R\x10partnerPointsMin\x12,\n" +
 	"\x12partner_points_max\x18\x04 \x01(\x05R\x10partnerPointsMax\x12\x16\n" +
-	"\x06delaer\x18\x05 \x01(\tR\x06delaer\")\n" +
+	"\x06delaer\x18\x05 \x01(\tR\x06delaer\x12$\n" +
+	"\x05north\x18\x06 \x01(\x0e2\x0e.cards.v1.UserR\x05north\x12$\n" +
+	"\x05south\x18\a \x01(\x0e2\x0e.cards.v1.UserR\x05south\x12\"\n" +
+	"\x04west\x18\b \x01(\x0e2\x0e.cards.v1.UserR\x04west\x12\"\n" +
+	"\x04east\x18\t \x01(\x0e2\x0e.cards.v1.UserR\x04east\")\n" +
 	"\x15GenerateHandsResponse\x12\x10\n" +
-	"\x03pbn\x18\x01 \x01(\tR\x03pbn2h\n" +
+	"\x03pbn\x18\x01 \x01(\tR\x03pbn*X\n" +
+	"\x04User\x12\x1a\n" +
+	"\x16USER_OWNER_UNSPECIFIED\x10\x00\x12\x10\n" +
+	"\fUSER_PARTNER\x10\x01\x12\x10\n" +
+	"\fUSER_PLAYER1\x10\x02\x12\x10\n" +
+	"\fUSER_PLAYER2\x10\x032h\n" +
 	"\x14CardGeneratorService\x12P\n" +
 	"\rGenerateHands\x12\x1e.cards.v1.GenerateHandsRequest\x1a\x1f.cards.v1.GenerateHandsResponseB\x12Z\x10cards.v1;cardsv1b\x06proto3"
 
@@ -169,19 +262,25 @@ func file_cards_v1_cards_proto_rawDescGZIP() []byte {
 	return file_cards_v1_cards_proto_rawDescData
 }
 
+var file_cards_v1_cards_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_cards_v1_cards_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_cards_v1_cards_proto_goTypes = []any{
-	(*GenerateHandsRequest)(nil),  // 0: cards.v1.GenerateHandsRequest
-	(*GenerateHandsResponse)(nil), // 1: cards.v1.GenerateHandsResponse
+	(User)(0),                     // 0: cards.v1.User
+	(*GenerateHandsRequest)(nil),  // 1: cards.v1.GenerateHandsRequest
+	(*GenerateHandsResponse)(nil), // 2: cards.v1.GenerateHandsResponse
 }
 var file_cards_v1_cards_proto_depIdxs = []int32{
-	0, // 0: cards.v1.CardGeneratorService.GenerateHands:input_type -> cards.v1.GenerateHandsRequest
-	1, // 1: cards.v1.CardGeneratorService.GenerateHands:output_type -> cards.v1.GenerateHandsResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: cards.v1.GenerateHandsRequest.north:type_name -> cards.v1.User
+	0, // 1: cards.v1.GenerateHandsRequest.south:type_name -> cards.v1.User
+	0, // 2: cards.v1.GenerateHandsRequest.west:type_name -> cards.v1.User
+	0, // 3: cards.v1.GenerateHandsRequest.east:type_name -> cards.v1.User
+	1, // 4: cards.v1.CardGeneratorService.GenerateHands:input_type -> cards.v1.GenerateHandsRequest
+	2, // 5: cards.v1.CardGeneratorService.GenerateHands:output_type -> cards.v1.GenerateHandsResponse
+	5, // [5:6] is the sub-list for method output_type
+	4, // [4:5] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_cards_v1_cards_proto_init() }
@@ -194,13 +293,14 @@ func file_cards_v1_cards_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_cards_v1_cards_proto_rawDesc), len(file_cards_v1_cards_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_cards_v1_cards_proto_goTypes,
 		DependencyIndexes: file_cards_v1_cards_proto_depIdxs,
+		EnumInfos:         file_cards_v1_cards_proto_enumTypes,
 		MessageInfos:      file_cards_v1_cards_proto_msgTypes,
 	}.Build()
 	File_cards_v1_cards_proto = out.File
