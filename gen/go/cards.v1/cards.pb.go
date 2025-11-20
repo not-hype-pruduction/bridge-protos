@@ -27,6 +27,7 @@ type GenerateHandsRequest struct {
 	MyPointsMax      int32                  `protobuf:"varint,2,opt,name=my_points_max,json=myPointsMax,proto3" json:"my_points_max,omitempty"`
 	PartnerPointsMin int32                  `protobuf:"varint,3,opt,name=partner_points_min,json=partnerPointsMin,proto3" json:"partner_points_min,omitempty"`
 	PartnerPointsMax int32                  `protobuf:"varint,4,opt,name=partner_points_max,json=partnerPointsMax,proto3" json:"partner_points_max,omitempty"`
+	Delaer           string                 `protobuf:"bytes,5,opt,name=delaer,proto3" json:"delaer,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -89,6 +90,13 @@ func (x *GenerateHandsRequest) GetPartnerPointsMax() int32 {
 	return 0
 }
 
+func (x *GenerateHandsRequest) GetDelaer() string {
+	if x != nil {
+		return x.Delaer
+	}
+	return ""
+}
+
 type GenerateHandsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Pbn           string                 `protobuf:"bytes,1,opt,name=pbn,proto3" json:"pbn,omitempty"`
@@ -137,12 +145,13 @@ var File_cards_v1_cards_proto protoreflect.FileDescriptor
 
 const file_cards_v1_cards_proto_rawDesc = "" +
 	"\n" +
-	"\x14cards/v1/cards.proto\x12\bcards.v1\"\xba\x01\n" +
+	"\x14cards/v1/cards.proto\x12\bcards.v1\"\xd2\x01\n" +
 	"\x14GenerateHandsRequest\x12\"\n" +
 	"\rmy_points_min\x18\x01 \x01(\x05R\vmyPointsMin\x12\"\n" +
 	"\rmy_points_max\x18\x02 \x01(\x05R\vmyPointsMax\x12,\n" +
 	"\x12partner_points_min\x18\x03 \x01(\x05R\x10partnerPointsMin\x12,\n" +
-	"\x12partner_points_max\x18\x04 \x01(\x05R\x10partnerPointsMax\")\n" +
+	"\x12partner_points_max\x18\x04 \x01(\x05R\x10partnerPointsMax\x12\x16\n" +
+	"\x06delaer\x18\x05 \x01(\tR\x06delaer\")\n" +
 	"\x15GenerateHandsResponse\x12\x10\n" +
 	"\x03pbn\x18\x01 \x01(\tR\x03pbn2h\n" +
 	"\x14CardGeneratorService\x12P\n" +
