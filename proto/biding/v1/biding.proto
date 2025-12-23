@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package biding.v1;
+
+option go_package = "biding.v1;bidingv1";
+
+service BidingService {
+  rpc MakeBid(MakeBidRequest) returns (MakeBidResponse);
+}
+
+message MakeBidRequest {
+
+}
+
+message Call {
+  SpecialCall type = 1;
+  int32 level = 2;
+  Suit suit = 3;
+}
+
+message Hand {
+  string pbn = 1;
+}
+
+message MakeBidRequest {
+  Hand player_hand = 1;
+  repeated Call auction_history = 2;
+  Vulnerability vulnerability = 3;
+  Seat dealer = 4;
+}
+
+message MakeBidResponse {
+  Call next_call = 1;
+}
+
+enum Suit {
+  SUIT_UNSPECIFIED = 0;
+  CLUBS = 1;
+  DIAMONDS = 2;
+  HEARTS = 3;
+  SPADES = 4;
+  NO_TRUMP = 5;
+}
+
+enum SpecialCall {
+  CALL_UNSPECIFIED = 0;
+  PASS = 1;
+  DOUBLE = 2;
+  REDOUBLE = 3;
+  BID = 4;
+}
+
+enum Seat {
+  NORTH = 0;
+  EAST = 1;
+  SOUTH = 2;
+  WEST = 3;
+}
+
+enum Vulnerability {
+  NONE = 0;
+  NS_VUL = 1;
+  EW_VUL = 2;
+  BOTH_VUL = 3;
+}
