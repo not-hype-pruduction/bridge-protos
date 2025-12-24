@@ -23,6 +23,7 @@ message MakeBidRequest {
   repeated Call auction_history = 2;
   Vulnerability vulnerability = 3;
   Seat dealer = 4;
+  System system_name = 5;
 }
 
 message MakeBidResponse {
@@ -60,4 +61,9 @@ enum Vulnerability {
   VULNERABILITY_NS_VUL = 2;
   VULNERABILITY_EW_VUL = 3;
   VULNERABILITY_BOTH_VUL = 4;
+}
+
+enum System {
+  SYSTEM_UNSPECIFIED = 0;
+  SYSTEM_SPUTNIK = 1;
 }
