@@ -8,10 +8,6 @@ service BidingService {
   rpc MakeBid(MakeBidRequest) returns (MakeBidResponse);
 }
 
-message MakeBidRequest {
-
-}
-
 message Call {
   SpecialCall type = 1;
   int32 level = 2;
@@ -35,31 +31,33 @@ message MakeBidResponse {
 
 enum Suit {
   SUIT_UNSPECIFIED = 0;
-  CLUBS = 1;
-  DIAMONDS = 2;
-  HEARTS = 3;
-  SPADES = 4;
-  NO_TRUMP = 5;
+  SUIT_CLUBS = 1;
+  SUIT_DIAMONDS = 2;
+  SUIT_HEARTS = 3;
+  SUIT_SPADES = 4;
+  SUIT_NO_TRUMP = 5;
 }
 
 enum SpecialCall {
-  CALL_UNSPECIFIED = 0;
-  PASS = 1;
-  DOUBLE = 2;
-  REDOUBLE = 3;
-  BID = 4;
+  SPECIAL_CALL_UNSPECIFIED = 0;
+  SPECIAL_CALL_PASS = 1;
+  SPECIAL_CALL_DOUBLE = 2;
+  SPECIAL_CALL_REDOUBLE = 3;
+  SPECIAL_CALL_BID = 4;
 }
 
 enum Seat {
-  NORTH = 0;
-  EAST = 1;
-  SOUTH = 2;
-  WEST = 3;
+  SEAT_UNSPECIFIED = 0;
+  SEAT_NORTH = 1;
+  SEAT_EAST = 2;
+  SEAT_SOUTH = 3;
+  SEAT_WEST = 4;
 }
 
 enum Vulnerability {
-  NONE = 0;
-  NS_VUL = 1;
-  EW_VUL = 2;
-  BOTH_VUL = 3;
+  VULNERABILITY_UNSPECIFIED = 0;
+  VULNERABILITY_NONE = 1;
+  VULNERABILITY_NS_VUL = 2;
+  VULNERABILITY_EW_VUL = 3;
+  VULNERABILITY_BOTH_VUL = 4;
 }
