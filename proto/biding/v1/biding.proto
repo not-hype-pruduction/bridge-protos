@@ -12,6 +12,7 @@ message Call {
   SpecialCall type = 1;
   int32 level = 2;
   Suit suit = 3;
+  string explanation = 4;
 }
 
 message Hand {
