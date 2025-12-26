@@ -33,11 +33,11 @@ message MakeBidResponse {
 
 enum Suit {
   SUIT_UNSPECIFIED = 0;
-  SUIT_CLUBS = 1;
-  SUIT_DIAMONDS = 2;
-  SUIT_HEARTS = 3;
-  SUIT_SPADES = 4;
-  SUIT_NO_TRUMP = 5;
+  SUIT_C = 1;
+  SUIT_D = 2;
+  SUIT_H = 3;
+  SUIT_S = 4;
+  SUIT_N = 5;
 }
 
 enum SpecialCall {
@@ -50,10 +50,10 @@ enum SpecialCall {
 
 enum Seat {
   SEAT_UNSPECIFIED = 0;
-  SEAT_NORTH = 1;
-  SEAT_EAST = 2;
-  SEAT_SOUTH = 3;
-  SEAT_WEST = 4;
+  SEAT_N = 1;
+  SEAT_E = 2;
+  SEAT_S = 3;
+  SEAT_W = 4;
 }
 
 enum Vulnerability {
