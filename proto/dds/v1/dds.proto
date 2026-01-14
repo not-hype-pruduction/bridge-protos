@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package dds.v1;
+
+option go_package = "dds.v1;ddsv1";
+
+service DDSService {
+  rpc GegDDTable(GetDDTableRequest) returns (GetDDTableResponse);
+}
+
+message GetDDTableRequest {
+  string pbn;
+}
+
+message PlayerResults {
+  int32 north = 1;
+  int32 east  = 2;
+  int32 south = 3;
+  int32 west  = 4;
+}
+
+message GetDDTableResponse {
+  map<string, PlayerResults> results = 1;
+}
