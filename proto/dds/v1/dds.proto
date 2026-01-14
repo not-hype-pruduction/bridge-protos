@@ -5,7 +5,7 @@ package dds.v1;
 option go_package = "dds.v1;ddsv1";
 
 service DDSService {
-  rpc GegDDTable(GetDDTableRequest) returns (GetDDTableResponse);
+  rpc GetDDTable(GetDDTableRequest) returns (GetDDTableResponse);
 }
 
 message GetDDTableRequest {
